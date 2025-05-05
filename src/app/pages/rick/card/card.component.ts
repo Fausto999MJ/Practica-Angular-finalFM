@@ -1,6 +1,6 @@
-import { Component, Input, OnChanges, SimpleChanges, TemplateRef, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { Ricks, Rick } from '../interfaces/ricks';
-import { NgFor, NgIf, NgIfContext } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { ModalComponent } from '../modal/modal.component';
 
 @Component({
@@ -16,7 +16,6 @@ export class CardComponent implements OnChanges {
 
   CargaImagen: boolean = false;
   selectedRick!: Rick;
-noRicks: TemplateRef<NgIfContext<boolean | undefined>> | null | undefined;
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['ricksAll']) {

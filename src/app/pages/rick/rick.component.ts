@@ -41,7 +41,7 @@ export class RickComponent implements OnInit {
   searchRick(termino: string): void {
     if (termino.trim()) {
       this._srvRick.getRicks(`https://rickandmortyapi.com/api/character/?name=${termino}`).subscribe((ricksAll) => {
-        // Aquí recibes un objeto con info y results
+       
         ricksAll.results.forEach((rick) => {
           this._srvRick.getRick(rick.name).subscribe((rickData) => {
             rick.data = rickData;

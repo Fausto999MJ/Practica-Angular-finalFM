@@ -1,3 +1,43 @@
+
+<div class="row">
+  <div class="col-12">
+    <h1 class="text-center display-1 rick-title">
+      Rick <span class="morty">and Morty</span>
+    </h1>
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap');
+
+  .rick-title {
+    font-family: 'Freckle Face', cursive;
+    color: #00ffcc; /* color portal */
+    text-shadow: 
+      2px 2px #00ff00,
+      4px 4px #5500ff;
+    animation: portalPulse 2s infinite alternate;
+  }
+
+  .morty {
+    color: #ffff00; /* color tipo "Morty" */
+    text-shadow: 
+      1px 1px #ff00ff,
+      2px 2px #5500ff;
+  }
+
+  @keyframes portalPulse {
+    0% {
+      text-shadow: 2px 2px #00ff00, 4px 4px #5500ff;
+      transform: scale(1);
+    }
+    100% {
+      text-shadow: 4px 4px #00ff00, 6px 6px #5500ff;
+      transform: scale(1.05);
+    }
+  }
+</style>
+
 <div class="row">
   <rick-search (eventSearch)="searchRick($event)"></rick-search>
 </div>

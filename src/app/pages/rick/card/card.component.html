@@ -1,32 +1,49 @@
-<div class="row mb-3 g-3">
+<div class="row mb-3 g-3"> 
   <ng-container *ngIf="ricksAll && ricksAll.results && ricksAll.results.length > 0; else noRicks">
     <div class="col-3" *ngFor="let rick of ricksAll.results">
-      <div class="card fixed-card">
-        <div *ngIf="!CargaImagen">
-          <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <div class="card fixed-card rick-card">
+        <div *ngIf="!CargaImagen" class="d-flex justify-content-center align-items-center" style="height: 200px;">
+        
+          <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <filter id="glow">
-                <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#39FF14"/>
-              </filter>
+              <radialGradient id="portalGradient" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#39ff14" />
+                <stop offset="100%" stop-color="#00ffcc" />
+              </radialGradient>
             </defs>
-            <circle cx="50" cy="50" r="40" stroke="#39FF14" stroke-width="4" fill="none" stroke-dasharray="80 20" filter="url(#glow)">
-              <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="1s" repeatCount="indefinite"/>
-            </circle>
+            <g>
+              <circle cx="60" cy="60" r="50" fill="none" stroke="url(#portalGradient)" stroke-width="5"
+                stroke-dasharray="15,10,5,10" stroke-linecap="round">
+                <animateTransform attributeName="transform" type="rotate"
+                  from="0 60 60" to="360 60 60" dur="2s" repeatCount="indefinite"/>
+              </circle>
+
+              <circle cx="60" cy="60" r="35" fill="none" stroke="url(#portalGradient)" stroke-width="3"
+                stroke-dasharray="5,5" stroke-linecap="round">
+                <animateTransform attributeName="transform" type="rotate"
+                  from="360 60 60" to="0 60 60" dur="3s" repeatCount="indefinite"/>
+              </circle>
+
+              <circle cx="60" cy="60" r="20" fill="#39ff14" opacity="0.3">
+                <animate attributeName="r" values="15;20;15" dur="1.5s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0.2;0.5;0.2" dur="1.5s" repeatCount="indefinite" />
+              </circle>
+            </g>
           </svg>
         </div>
 
         <img 
           [src]="rick.image" 
-          class="card-img-top fixed-img" 
-          alt="..." 
-          loading="lazy" 
+          class="card-img-top fixed-img rick-img" 
+          alt="..."
+          loading="lazy"
           (load)="CargaImagen=true"
         >
 
-        <div class="card-body fixed-body">
+        <div class="card-body fixed-body rick-body">
           <h5 class="card-title">{{rick.name}}</h5>
           <p class="card-text">Especie: {{rick.species}}</p>
-          <li class="btn btn-outline-primary" (click)="openModal(rick)">Más Información</li>
+          <li class="btn btn-outline-primary rick-btn" (click)="openModal(rick)">Mas Información</li>
         </div>
       </div>
     </div>
@@ -40,3 +57,5 @@
     </div>
   </ng-template>
 </div>
+
+<rick-modal></rick-modal>

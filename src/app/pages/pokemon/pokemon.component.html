@@ -1,9 +1,41 @@
+
 <div class="row">
     <div class="col-12">
-        <h1 class="text-center display-1 text-danger">Poke <span class="text-warning">dex</span></h1>
+      <h1 class="text-center display-1 pokemon-title">
+        Poke<span class="mon">mon</span>
+      </h1>
     </div>
-</div>
-
+  </div>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+  
+    .pokemon-title {
+      font-family: 'Luckiest Guy', cursive;
+      color: #cc0000; /* rojo Pokémon */
+      text-shadow: 
+        2px 2px #000000,
+        4px 4px #ffcc00; /* sombra tipo logo */
+      animation: bounce 2s infinite;
+    }
+  
+    .mon {
+      color: #ffcc00; /* amarillo Pokémon */
+      text-shadow: 
+        2px 2px #000000,
+        4px 4px #cc0000;
+    }
+  
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+  </style>
+  
 
 <div class="row">
     <pokemon-search (eventSearch)="searchPokemon($event)"/>

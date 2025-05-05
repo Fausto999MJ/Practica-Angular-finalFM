@@ -1,25 +1,66 @@
-.fixed-card{
-    width: 100%;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+
+@keyframes portalFadeIn {
+    0% {
+      transform: scale(0.9) rotate(-5deg);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+  }
+  
+
+  @keyframes dimensionVibe {
+    0% { transform: translate(0px, 0px) rotate(0deg); }
+    25% { transform: translate(1px, -1px) rotate(0.3deg); }
+    50% { transform: translate(-1px, 1px) rotate(-0.3deg); }
+    75% { transform: translate(1px, 1px) rotate(0.2deg); }
+    100% { transform: translate(0px, 0px) rotate(0deg); }
+  }
+  
+  .rick-card {
+    animation: portalFadeIn 0.5s ease-in-out;
+    border: 2px solid #39ff14;
+    border-radius: 16px;
+    box-shadow: 0 0 10px #00ffcc88;
+    background-color: #111827; 
+    transition: transform 0.3s, box-shadow 0.3s;
     overflow: hidden;
-}
-
-.fixed-img{
-    width: auto;
-    height: 100px;
-    max-width: 80%;
-    object-fit: contain;
-}
-
-.fixed-body{
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-}
+    position: relative;
+  }
+  
+ 
+  .rick-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #39ff14, 0 0 40px #00ffcc;
+    animation: dimensionVibe 0.2s infinite;
+  }
+  
+ 
+  .rick-img {
+    border-bottom: 2px solid #00ffcc;
+    filter: drop-shadow(0 0 5px #39ff14aa);
+  }
+  
+ 
+  .rick-body h5,
+  .rick-body p {
+    color: #39ff14;
+    text-shadow: 0 0 5px #39ff14aa;
+  }
+  
+ 
+  .rick-btn {
+    border-color: #00ffcc;
+    color: #00ffcc;
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+  }
+  
+  .rick-btn:hover {
+    background-color: #00ffcc;
+    color: #111;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #39ff14;
+  }
+  
